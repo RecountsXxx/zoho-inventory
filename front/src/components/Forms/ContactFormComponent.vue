@@ -52,12 +52,7 @@ export default{
 
         let newContact = await ContactService.addCustomer(contactData);
         if(newContact != null) {
-          if(contactData.contact_type === "customer"){
-            this.$emit('addCustomer', {contact_id: newContact.contact_id, contact_name: newContact.contact_name});
-          }
-          else if(contactData.contact_type === "vendor"){
-            this.$emit('addVendor', {contact_id: newContact.contact_id, contact_name: newContact.contact_name});
-          }
+          this.$emit('add', {contact_id: newContact.contact_id, contact_type:newContact.contact_type, contact_name: newContact.contact_name});
         }
 
         this.isLoading = false;

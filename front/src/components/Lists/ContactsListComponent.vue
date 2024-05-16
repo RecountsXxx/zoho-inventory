@@ -13,6 +13,7 @@
         <tr v-for="item in contacts" :key="item.contact_id">
           <td>{{ item.contact_id }}</td>
           <td>{{ item.contact_name }}</td>
+          <td>{{ item.contact_type }}</td>
         </tr>
         </tbody>
       </table>
