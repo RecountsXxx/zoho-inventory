@@ -52,7 +52,7 @@ export default{
 
         let newContact = await ContactService.addCustomer(contactData);
         if(newContact != null) {
-          this.$emit('add', {contact_id: newContact.contact_id, contact_type:newContact.contact_type, contact_name: newContact.contact_name});
+          this.$emit('add', {contact_id: newContact.contact_id,status:newContact.status, contact_type:newContact.contact_type, contact_name: newContact.contact_name});
         }
 
         this.isLoading = false;

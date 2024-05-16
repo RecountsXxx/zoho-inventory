@@ -74,7 +74,9 @@ export default {
       this.taxes.push(newTax);
     },
     addCustomer(newCustomer) {
-      this.customers.push(newCustomer);
+      this.contacts.push(newCustomer);
+      this.vendors = this.contacts.filter((item) => item.contact_type === "vendor");
+      this.customers = this.contacts.filter((item) => item.contact_type === "customer");
     },
   }
 }
