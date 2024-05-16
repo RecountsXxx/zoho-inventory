@@ -6,8 +6,14 @@ cd front
 npm i
 npm run serve
 ```
-**1. cd front && npm i && npm run serve**
-**2. cd back && composer install && create .env && php artisan key:generate && php artisan serve**
+
+```
+cd back
+composer install
+create .env and fill fields
+php artisan key:generate
+php artisan serve
+```
 
 ![Снимок экрана от 2024-05-16 13-36-04](https://github.com/RecountsXxx/zoho-inventory/assets/107986811/08101f0b-3a21-4ab3-8663-bbefbdf7dc15)
 ![Снимок экрана от 2024-05-16 13-36-16](https://github.com/RecountsXxx/zoho-inventory/assets/107986811/4e2e3498-dd26-46eb-a10a-f682deebbd10)
