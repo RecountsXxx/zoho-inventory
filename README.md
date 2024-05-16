@@ -1,6 +1,11 @@
 Integration Zoho Inventory per Sales Orders, Purchase Orders, Contacts, Taxes
 
 **Deployment**
+```
+cd front
+npm i
+npm run serve
+```
 **1. cd front && npm i && npm run serve**
 **2. cd back && composer install && create .env && php artisan key:generate && php artisan serve**
 
