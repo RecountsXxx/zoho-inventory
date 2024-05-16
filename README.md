@@ -6,11 +6,13 @@ cd front
 npm i
 npm run serve
 ```
-
+Create env file
+```
+create .env and fill fields
+```
 ```
 cd back
 composer install
-create .env and fill fields
 php artisan key:generate
 php artisan serve
 ```
