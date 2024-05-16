@@ -21,9 +21,10 @@ php artisan serve
 Scopes: ZohoInventory.contacts.ALL,ZohoCRM.modules.ALL,ZohoInventory.items.ALL,ZohoInventory.purchaseorders.ALL,ZohoInventory.salesorders.ALL,ZohoInventory.settings.ALL
 
 **Screenshots**
-![Снимок экрана от 2024-05-16 13-36-04](https://github.com/RecountsXxx/zoho-inventory/assets/107986811/08101f0b-3a21-4ab3-8663-bbefbdf7dc15)
-![Снимок экрана от 2024-05-16 13-36-16](https://github.com/RecountsXxx/zoho-inventory/assets/107986811/4e2e3498-dd26-46eb-a10a-f682deebbd10)
+
+![Снимок экрана от 2024-05-16 20-03-35](https://github.com/RecountsXxx/zoho-inventory/assets/107986811/1516d66f-bdf6-41a6-96ec-a1c3efb27573)
+![Снимок экрана от 2024-05-16 20-03-33](https://github.com/RecountsXxx/zoho-inventory/assets/107986811/3b7ca53a-c793-482e-8470-81dc52600bdb)
 
 
-https://github.com/RecountsXxx/zoho-inventory/assets/107986811/b1b762e3-02f9-4536-9ea4-053a5d7a0358
+https://github.com/RecountsXxx/zoho-inventory/assets/107986811/1a6054e0-5fe7-4301-9c08-928d329a3d1a
 
