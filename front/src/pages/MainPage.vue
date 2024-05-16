@@ -14,7 +14,7 @@
 
     <ListItemsComponent class="mt-4" :items="items"></ListItemsComponent>
     <div class="d-flex flex-row gap-5 w-100">
-      <ListContactsComponent class="mt-4 w-50" :contacts="customers"></ListContactsComponent>
+      <ListContactsComponent class="mt-4 w-50" :contacts="contacts"></ListContactsComponent>
       <ListTaxesComponent class="mt-4 w-50" :taxes="taxes"></ListTaxesComponent>
     </div>
 
@@ -54,16 +54,19 @@ export default {
       items: [],
       taxes:[],
       vendors:[],
+      contacts:[],
 
       isLoading: true,
     };
   },
   async created() {
-    this.customers = await ContactService.fetchCustomers();
+    this.contacts = await ContactService.fetchCustomers();
     this.items = await ItemService.fetchItems();
     this.taxes = await TaxService.fetchTaxes();
 
-    this.vendors = this.customers.filter((item) => item.contact_type === "vendor");
+    this.vendors = this.contacts.filter((item) => item.contact_type === "vendor");
+    this.customers = this.contacts.filter((item) => item.contact_type === "customer");
+
     this.isLoading = false;
   },
   methods: {
