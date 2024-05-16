@@ -9,7 +9,6 @@ use App\Services\Modules\Orders\SalesOrderService;
 
 class SalesOrderController extends Controller
 {
-
     public function __construct(private SalesOrderService $orderService) {}
 
     public function store(SalesOrderRequest $request)

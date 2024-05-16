@@ -16,4 +16,13 @@ class ItemService
 
         return $response['items'];
     }
+
+    public function getItem(string $id)
+    {
+        $url = 'https://www.zohoapis.eu/inventory/v1/items/' . $id;
+
+        $response = $this->requestService->makeRequest('get',$url);
+
+        return $response['item'];
+    }
 }

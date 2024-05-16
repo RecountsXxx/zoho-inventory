@@ -3,8 +3,6 @@
 
     <div class="d-flex flex-row gap-5">
       <SalesFormComponent :items="items" :customers="customers" :taxes="taxes"></SalesFormComponent>
-
-      <PurchaseFormComponent :items="items" :vendors="vendors" :taxes="taxes"></PurchaseFormComponent>
     </div>
     <div class="w-100 d-flex flex-row mt-5">
       <ContactFormComponent @add="addCustomer"></ContactFormComponent>
@@ -35,11 +33,9 @@ import ContactService from "@/services/ContactService";
 import TaxService from "@/services/TaxService";
 import ItemService from "@/services/ItemsService";
 import SalesFormComponent from "@/components/Forms/SalesFormComponent.vue";
-import PurchaseFormComponent from "@/components/Forms/PurchaseFormComponent.vue";
 
 export default {
   components: {
-    PurchaseFormComponent,
     SalesFormComponent,
     TaxFormComponent,
     ContactFormComponent,
@@ -53,7 +49,6 @@ export default {
       customers: [],
       items: [],
       taxes:[],
-      vendors:[],
       contacts:[],
 
       isLoading: true,
@@ -64,7 +59,6 @@ export default {
     this.items = await ItemService.fetchItems();
     this.taxes = await TaxService.fetchTaxes();
 
-    this.vendors = this.contacts.filter((item) => item.contact_type === "vendor");
     this.customers = this.contacts.filter((item) => item.contact_type === "customer");
 
     this.isLoading = false;
@@ -75,7 +69,6 @@ export default {
     },
     addCustomer(newCustomer) {
       this.contacts.push(newCustomer);
-      this.vendors = this.contacts.filter((item) => item.contact_type === "vendor");
       this.customers = this.contacts.filter((item) => item.contact_type === "customer");
     },
   }

@@ -20,3 +20,4 @@ Route::get('/contacts',[ContactController::class,'index']);
 Route::post('/taxes' ,[TaxController::class,'store']);
 Route::get('/taxes' ,[TaxController::class,'index']);
 Route::get('/items', [ItemController::class,'index']);
+Route::get('/items/{id}', [ItemController::class,'show']);

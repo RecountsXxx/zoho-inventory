@@ -14,4 +14,9 @@ class ItemController extends Controller
     {
         return $this->itemService->getItems();
     }
+
+    public function show(string $id)
+    {
+        return $this->itemService->getItem($id);
+    }
 }

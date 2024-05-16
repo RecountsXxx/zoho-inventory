@@ -11,6 +11,16 @@ class SalesOrderService{
             this.toast.error(error.response.data.message);
         }
     }
+
+    async addPurchaseOrder(data)
+    {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/purchase_orders',data);
+            this.toast.success(response.data.message);
+        } catch (error) {
+            this.toast.error(error.response.data.message);
+        }
+    }
 }
 
 export default new SalesOrderService();
