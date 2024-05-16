@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Contacts\ContactRequest;
 use App\Services\Modules\Contacts\ContactService;
 
-
 class ContactController extends Controller
 {
 

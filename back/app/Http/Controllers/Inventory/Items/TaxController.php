@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Items\TaxRequest;
 use App\Services\Modules\Items\TaxService;
 
-
 class TaxController extends Controller
 {
     public function __construct(private TaxService $taxService) {}
