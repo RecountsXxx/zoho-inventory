@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Inventory\Customers;
+namespace App\Http\Controllers\Inventory\Contacts;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Customers\ContactRequest;
-use App\Services\Modules\Customers\ContactService;
+use App\Http\Requests\Contacts\ContactRequest;
+use App\Services\Modules\Contacts\ContactService;
 
 
 class ContactController extends Controller

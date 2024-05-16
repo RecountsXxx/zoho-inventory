@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\Inventory\Customers\ContactController;
-use App\Http\Controllers\Inventory\Customers\VendorController;
+use App\Http\Controllers\Inventory\Contacts\ContactController;
 use App\Http\Controllers\Inventory\Items\ItemController;
 use App\Http\Controllers\Inventory\Items\TaxController;
 use App\Http\Controllers\Inventory\Orders\PurchaseOrderController;
@@ -13,10 +12,9 @@ use Illuminate\Support\Facades\Route;
 Route::post('/sales_orders', [SalesOrderController::class,'store']);
 Route::post('/purchase_orders', [PurchaseOrderController::class,'store']);
 
-//customers
-Route::post('/customers',[ContactController::class,'store']);
-Route::get('/customers',[ContactController::class,'index']);
-Route::get('/vendors' ,[VendorController::class,'index']);
+//contacts
+Route::post('/contacts',[ContactController::class,'store']);
+Route::get('/contacts',[ContactController::class,'index']);
 
 //items
 Route::post('/taxes' ,[TaxController::class,'store']);

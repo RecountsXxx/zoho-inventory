@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Modules\Customers;
+namespace App\Services\Modules\Contacts;
 
 use App\Services\Helpers\RequestService;
 
