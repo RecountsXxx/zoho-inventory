@@ -47,6 +47,7 @@ export default {
   props: {
     items: Array,
     taxes: Array,
+    vendors:Array,
     products: {
       type: Array,
       required: true

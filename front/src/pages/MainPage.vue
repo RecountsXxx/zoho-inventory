@@ -2,7 +2,7 @@
   <div class="w-100 p-5">
 
     <div class="d-flex flex-row gap-5">
-      <SalesFormComponent :items="items" :customers="customers" :taxes="taxes"></SalesFormComponent>
+      <SalesFormComponent :vendors="vendors" :items="items" :customers="customers" :taxes="taxes"></SalesFormComponent>
     </div>
     <div class="w-100 d-flex flex-row mt-5">
       <ContactFormComponent @add="addCustomer"></ContactFormComponent>
@@ -50,6 +50,7 @@ export default {
       items: [],
       taxes:[],
       contacts:[],
+      vendors:[],
 
       isLoading: true,
     };
@@ -60,7 +61,7 @@ export default {
     this.taxes = await TaxService.fetchTaxes();
 
     this.customers = this.contacts.filter((item) => item.contact_type === "customer");
-
+    this.vendors = this.contacts.filter((item) => item.contact_type === "vendor");
     this.isLoading = false;
   },
   methods: {
@@ -70,6 +71,7 @@ export default {
     addCustomer(newCustomer) {
       this.contacts.push(newCustomer);
       this.customers = this.contacts.filter((item) => item.contact_type === "customer");
+      this.vendors = this.contacts.filter((item) => item.contact_type === "vendor");
     },
   }
 }

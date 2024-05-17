@@ -22,6 +22,18 @@ import {useToast} from "vue-toastification";
          }
      }
 
+     async addItem(data)
+     {
+         try {
+             const response = await axios.post('http://127.0.0.1:8000/api/items',data);
+             this.toast.success(response.data.message);
+             return response.data.item;
+         } catch (error) {
+             this.toast.error(error.response.data.message);
+         }
+     }
+
+
  }
 
 export default new ItemsService();

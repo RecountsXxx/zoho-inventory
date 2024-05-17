@@ -19,4 +19,9 @@ class ItemController extends Controller
     {
         return $this->itemService->getItem($id);
     }
+
+    public function store(ItemRequest $request)
+    {
+        return $this->itemService->storeItem($request->validated());
+    }
 }

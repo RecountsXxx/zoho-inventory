@@ -15,8 +15,12 @@
       <label>Make purchase order:</label>
       <input type="checkbox" v-model="salesOrder.purchase_order" class="form-check-input">
     </div>
-    <SelectProductComponent :items="items" :taxes="taxes" v-model:products="products" />
-    <button @click="submitSalesOrder" :disabled="isLoading || !salesOrder.customer_id || products.length === 0" class="btn mt-5 btn-primary">Submit Order</button>
+    <SelectProductComponent :vendors="vendors" :items="items" :taxes="taxes" v-model:products="products" />
+    <ItemFormComponent class="w-100" @addItem="addItem" :taxes="taxes"  :vendors="vendors" v-if="showPopup" :isVisible="showPopup" @close="showPopup = false" />
+    <div>
+      <button @click="submitSalesOrder" :disabled="isLoading || !salesOrder.customer_id || products.length === 0" class="btn mt-5 btn-primary">Submit Order</button>
+      <button @click="showPopup = true" class="ms-2 mt-5 btn btn-success">Create product</button>
+    </div>
     <GlobalLoaderComponent v-if="isLoading" />
   </div>
 </template>
@@ -27,12 +31,14 @@ import GlobalLoaderComponent from "@/components/Helpers/GlobalLoaderComponent.vu
 import SalesOrderService from "@/services/SalesOrderService";
 import SelectProductComponent from "@/components/Helpers/SelectProductComponent.vue";
 import ItemsService from "@/services/ItemsService";
+import ItemFormComponent from "@/components/Forms/ItemFormComponent.vue";
 
 export default {
-  components: { SelectProductComponent, GlobalLoaderComponent },
+  components: {ItemFormComponent, SelectProductComponent, GlobalLoaderComponent },
   props: {
     items: Array,
     customers: Array,
+    vendors: Array,
     taxes: Array,
   },
   setup() {
@@ -48,6 +54,7 @@ export default {
       },
       products: [],
       isLoading: false,
+      showPopup: false,
     };
   },
   methods: {
@@ -119,11 +126,15 @@ export default {
           const lineItems = [];
 
           vendorProducts.forEach(product => {
+            let quantity = 0;
             const correspondingProduct = this.products.find(p => p.item_id === product.item_id);
             if (correspondingProduct) {
+              if(product.actual_available_for_sale_stock < correspondingProduct.quantity){
+                quantity = correspondingProduct.quantity - product.actual_available_for_sale_stock;
+              }
               lineItems.push({
                 item_id: product.item_id,
-                quantity: correspondingProduct.quantity,
+                quantity: quantity,
                 rate: correspondingProduct.rate,
                 tax_id: correspondingProduct.tax_id
               });
@@ -166,6 +177,12 @@ export default {
         this.isLoading = false;
       }
     },
+
+
+    addItem(newItem){
+      // eslint-disable-next-line vue/no-mutating-props
+      this.items.push(newItem);
+    }
   },
 };
 </script>

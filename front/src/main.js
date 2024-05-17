@@ -7,6 +7,7 @@ const app = createApp(App);
 
 const pinia = createPinia();
 app.use(pinia);
+app.config.productionTip = false;
 app.use(Toast, {
     transition: "Vue-Toastification__bounce",
     maxToasts: 20,

@@ -11,6 +11,8 @@ export const useProductStore = defineStore('productStore', {
                 this.products = [...newProducts];
             }
         },
+        setProduct(newProduct) {
+                this.products.push(newProduct);},
         addProduct() {
             const newProduct = {
                 item_id: null,
