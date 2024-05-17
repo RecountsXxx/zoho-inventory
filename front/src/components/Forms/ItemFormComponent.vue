@@ -28,6 +28,10 @@
           <input type="number" v-model="formData.initial_stock" id="initial_stock" class="form-control" required />
         </div>
         <div class="mb-3">
+          <label for="initial_stock" class="form-label">Purchase rate:</label>
+          <input type="number" v-model="formData.purchase_rate" id="purchase_rate" class="form-control" required />
+        </div>
+        <div class="mb-3">
           <label for="initial_stock_rate" class="form-label">Initial Stock Rate:</label>
           <input type="number" v-model="formData.initial_stock_rate" id="initial_stock_rate" class="form-control" required />
         </div>
@@ -59,7 +63,8 @@ export default {
         vendor_id: '',
         rate: 0,
         initial_stock: 0,
-        initial_stock_rate: 0
+        initial_stock_rate: 0,
+        purchase_rate:0,
       },
       isLoading: false,
     };
@@ -70,8 +75,9 @@ export default {
     },
     async submitForm() {
       this.isLoading = true;
+      console.log(this.formData);
       const newItem = await ItemsService.addItem(this.formData);
-
+      console.log(newItem);
       this.$emit('addItem', newItem);
       this.isLoading = false;
       this.close();

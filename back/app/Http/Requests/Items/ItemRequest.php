@@ -19,7 +19,10 @@ class ItemRequest extends FormRequest
             'vendor_id'=>'required',
             'rate'=>'required',
             'initial_stock'=>'required',
-            'initial_stock_rate'=>'required'
+            'initial_stock_rate'=>'required',
+            'purchase_rate'=>'required',
+
+
         ];
     }
 

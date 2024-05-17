@@ -37,6 +37,8 @@ class ItemService
             'rate'=>$data['rate'],
             'initial_stock'=>$data['initial_stock'],
             'initial_stock_rate'=>$data['initial_stock_rate'],
+            'item_type'=>'inventory',
+            'purchase_rate'=>$data['purchase_rate']
         ]);
 
         return $response;
