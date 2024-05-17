@@ -75,9 +75,7 @@ export default {
     },
     async submitForm() {
       this.isLoading = true;
-      console.log(this.formData);
       const newItem = await ItemsService.addItem(this.formData);
-      console.log(newItem);
       this.$emit('addItem', newItem);
       this.isLoading = false;
       this.close();
