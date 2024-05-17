@@ -51,9 +51,32 @@ export default {
     };
   },
   methods: {
+    validateProducts() {
+      if (this.salesOrder.purchase_order) {
+        for (const product of this.products) {
+          if (!product.item_id) {
+            this.toast.error("Select products from list, Purchase order accepted only created products");
+            return false;
+          }
+        }
+      } else {
+        for (const product of this.products) {
+          if (!product.item_id && !product.name) {
+            this.toast.error("Select product or enter name");
+            return false;
+          }
+        }
+      }
+      return true;
+    },
+
     async submitSalesOrder() {
       if (!this.salesOrder.customer_id || this.products.length === 0) {
         this.toast.error("Please fill all required fields");
+        return;
+      }
+
+      if (!this.validateProducts()) {
         return;
       }
 
@@ -76,7 +99,7 @@ export default {
     async handlePurchaseOrder() {
       const productIds = this.products.map(product => product.item_id).filter(Boolean);
       if (productIds.length === 0) {
-        this.toast.error("Allow only created products");
+        this.toast.error("Only created products can be added to a purchase order.");
         return;
       }
 
@@ -112,14 +135,13 @@ export default {
             return;
           }
 
-          await SalesOrderService.addPurchaseOrder({ vendor_id: vendorId, line_items: lineItems });
+          await SalesOrderService.addPurchaseOrder({vendor_id: vendorId, line_items: lineItems});
         }
       } catch (error) {
         console.error("Error purchase order:", error);
         this.toast.error("Error purchase order");
       }
     },
-
 
     async sendSalesOrder() {
       try {

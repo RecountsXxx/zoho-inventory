@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Inventory\Items;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Items\ItemRequest;
 use App\Services\Modules\Items\ItemService;
 
 class ItemController extends Controller
