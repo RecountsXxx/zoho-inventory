@@ -31,4 +31,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'api' => [
+        'base_url' => env('ZOHO_BASE_URL', 'https://www.zohoapis.eu/inventory'),
+    ],
+
 ];

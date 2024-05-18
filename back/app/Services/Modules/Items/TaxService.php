@@ -12,7 +12,7 @@ class TaxService
     {
         $url = 'https://www.zohoapis.eu/inventory/v1/settings/taxes';
 
-        $response = $this->requestService->makeRequest('post', $url, [
+        $response = $this->requestService->makeRequest('post', '/settings/taxes', [
             'tax_name' => $data['tax_name'],
             'tax_percentage'=>$data['tax_percentage'],
         ]);
@@ -21,9 +21,7 @@ class TaxService
     }
     public function getTaxs()
     {
-        $url = 'https://www.zohoapis.eu/inventory/v1/settings/taxes';
-
-        $response = $this->requestService->makeRequest('get',$url);
+        $response = $this->requestService->makeRequest('get','/settings/taxes');
 
         return $response['taxes'];
     }

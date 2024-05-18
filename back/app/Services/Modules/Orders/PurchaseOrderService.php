@@ -10,9 +10,7 @@ class PurchaseOrderService
 
     public function storeOrder($data)
     {
-        $url = 'https://www.zohoapis.eu/inventory/v1/purchaseorders';
-
-        $response = $this->requestService->makeRequest('post', $url, [
+        $response = $this->requestService->makeRequest('post', '/purchaseorders', [
             'vendor_id' => $data['vendor_id'],
             'line_items'=>$data['line_items']
         ]);

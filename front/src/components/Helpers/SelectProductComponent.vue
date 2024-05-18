@@ -1,4 +1,5 @@
 <template>
+
   <div class="mt-2">
     <h2>Items List</h2>
     <table class="table">

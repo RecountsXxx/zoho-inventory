@@ -10,9 +10,7 @@ class SalesOrderService
 
     public function storeOrder($data)
     {
-        $url = 'https://www.zohoapis.eu/inventory/v1/salesorders';
-
-        $response = $this->requestService->makeRequest('post', $url, [
+        $response = $this->requestService->makeRequest('post', '/salesorders', [
             'customer_id' => $data['customer_id'],
             'line_items'=>$data['line_items'],
             'discount'=>$data['discount'],

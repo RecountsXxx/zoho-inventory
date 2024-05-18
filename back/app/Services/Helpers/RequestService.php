@@ -1,20 +1,17 @@
 <?php
-
 namespace App\Services\Helpers;
 
-use Illuminate\Support\Facades\Http;
+use App\Services\Abstracts\AbstractRequestService;
+use Illuminate\Http\Client\Response;
 
-class RequestService
+class RequestService extends AbstractRequestService
 {
-    public function makeRequest($method, $url, $data = [])
+    public function makeRequest(string $method, string $endpoint, array $data = []): Response
     {
-        $accessToken = AccessTokenService::getAccessToken();
-
-        $response = Http::withHeaders([
-            'Authorization' => 'Bearer ' . $accessToken,
-            'Content-Type' => 'application/json'
-        ])->$method($url, $data);
-
-        return $response;
+        return $this
+            ->setMethod($method)
+            ->setEndpoint($endpoint)
+            ->setData($data)
+            ->sendRequest();
     }
 }

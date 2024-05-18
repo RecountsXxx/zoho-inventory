@@ -10,9 +10,7 @@ class ContactService
 
     public function storeContact($data)
     {
-        $url = 'https://www.zohoapis.eu/inventory/v1/contacts';
-
-        $response = $this->requestService->makeRequest('post', $url, [
+        $response = $this->requestService->makeRequest('post', '/contacts', [
             'contact_name' => $data['contact_name'],
             'contact_type' => $data['contact_type'],
         ]);
@@ -22,9 +20,7 @@ class ContactService
 
     public function getContacts()
     {
-        $url = 'https://www.zohoapis.eu/inventory/v1/contacts';
-
-        $response = $this->requestService->makeRequest('get', $url);
+        $response = $this->requestService->makeRequest('get', '/contacts');
 
         return $response['contacts'];
     }
