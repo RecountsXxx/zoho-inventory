@@ -17,16 +17,14 @@ class ItemService
 
     public function getItem(string $id)
     {
-        $response = $this->requestService->makeRequest('get','/items');
+        $response = $this->requestService->makeRequest('get',"/items/${id}");
 
         return $response['item'];
     }
 
     public function storeItem($data)
     {
-        $url = 'https://www.zohoapis.eu/inventory/v1/items';
-
-        $response = $this->requestService->makeRequest('post', $url, [
+        $response = $this->requestService->makeRequest('post', '/items', [
             'name' => $data['name'],
             'tax_id'=>$data['tax_id'],
             'vendor_id'=>$data['vendor_id'],

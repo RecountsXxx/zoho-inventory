@@ -28,7 +28,7 @@
 <script>
 import { useToast } from "vue-toastification";
 import GlobalLoaderComponent from "@/components/Helpers/GlobalLoaderComponent.vue";
-import SalesOrderService from "@/services/SalesOrderService";
+import SalesOrderService from "@/services/OrderService";
 import SelectProductComponent from "@/components/Helpers/SelectProductComponent.vue";
 import ItemsService from "@/services/ItemsService";
 import ItemFormComponent from "@/components/Forms/ItemFormComponent.vue";
